@@ -5,42 +5,131 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-body {
-  font-family: 'Poppins', sans-serif;
-  height: 100vh;
-}
-
-a {
-  text-decoration: none;
-  color: #000;
-}
-
-p {
-  line-height: 1.7;
-}
-
-ul {
+li{
   list-style: none;
 }
 
-li {
-  line-height: 2.2;
+body {
+  background: #8758ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h1,
-h2,
-h3 {
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
+.App {
   text-align: center;
+}
+
+h1, h2 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.TodoWrapper {
+  background: #1A1A40;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.TodoForm {
+  width: 100%;
+}
+
+.todo-input {
+  outline: none;
+  background: none;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px solid #8758ff;;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 300px;
+  color: #fff;
+}
+
+.todo-input::placeholder {
+  color: #ffffff4d;
+  
+}
+
+.time-input {
+  outline: none;
+  background: none;
+  border: 1px solid #8758ff;;
+  padding: 0.55rem;
+  cursor: pointer;
+  color: #fff;
+  height: 45px;
+  border-radius: 10px;
+  
+}
+.todo-btn {
+  background: #8758ff;
+  color: #fff;
+  border: 1px solid #8758ff;;
+  padding: 0.55rem;
+  cursor: pointer;
+  height: 45px;
+  border-radius: 10px;
+}
+
+.Todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #8758ff;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.fa-trash {
+  margin-left: 0.75rem;
+}
+
+.completed {
+  color: #1A1A40;
+  text-decoration: line-through;
+}
+.checkbox-and-text {
+  display: flex;
+  flex-direction: row;
+  }
+  .text{
+    margin-left: 10px;
+  }
+
+.checkbox {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+  background-color:aliceblue;
+	transition: 0.4s;
+}
+
+.completed .checkbox {
+	background-color:#1A1A40;
+}
+.delete-todo:hover {
+  color: rgb(255, 24, 24);
+  }
+  .edit-todo:hover {
+    color:#1A1A40;
+    }
+
+    h3{
+      text-align: center;
+      color: #fff;
+    }
+ 
+span {
+  padding-right: 5px;
 }
 
 .header {

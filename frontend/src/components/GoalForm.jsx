@@ -4,36 +4,39 @@ import { createGoal } from '../features/goals/goalSlice'
 
 function GoalForm() {
   const [text, setText] = useState('')
-
+  const [time, setTime] = useState('');
   const dispatch = useDispatch()
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(createGoal({ text }))
+    dispatch(createGoal({ text, time}))
     setText('')
+    setTime('')
+
+
   }
 
   return (
-    <section className='form'>
-      <form onSubmit={onSubmit}>
-        <div className='form-group'>
-          <label htmlFor='text'>Goal</label>
+      <form onSubmit={onSubmit}  className="TodoForm">
           <input
+            className="todo-input"
             type='text'
             name='text'
             id='text'
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
-        </div>
-        <div className='form-group'>
-          <button className='btn btn-block' type='submit'>
-            Add Goal
-          </button>
-        </div>
+          <input
+              type="time"
+              className="time-input"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            />
+            <button type="submit" className="todo-btn">
+              Add Task
+            </button>
       </form>
-    </section>
   )
 }
 
