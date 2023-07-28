@@ -40,9 +40,7 @@ function Dashboard() {
         <h1>Welcome {user && user.name}</h1>
         <h2>Task Manager</h2>
       </section>
-
       <GoalForm />
-      
       {goals.length > 0 ? (
         <div>
           {goals.map((goal) => (
