@@ -13,8 +13,6 @@ function GoalForm() {
     dispatch(createGoal({ text, time}))
     setText('')
     setTime('')
-
-
   }
 
   return (
