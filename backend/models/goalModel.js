@@ -7,13 +7,21 @@ const goalSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    text: {
+    cardNumber: {
       type: String,
       required: [true, 'Please add a text value'],
     },
-    time: {
+    holderName: {
       type: String,
-      required: [false],
+      required: [true, 'Please add a Full Name'],
+    },
+    month: {
+      type: String,
+      required: [true, 'Please add Month'],
+    },
+    cvv: {
+      type: String,
+      required: [true, 'Please add CVV'],
     },
     completed: {
       type: Boolean,

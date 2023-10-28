@@ -121,7 +121,6 @@ export const toggleEditGoal = createAsyncThunk(
   }
 );
 
-
 export const goalSlice = createSlice({
   name: 'goal',
   initialState,

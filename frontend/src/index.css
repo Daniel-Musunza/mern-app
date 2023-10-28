@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+.logo{
+  margin-left: 20px;
+}
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +13,7 @@ li{
 }
 
 body {
-  background: #8758ff;
+  background: #338dd2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,7 +84,7 @@ h1, h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #8758ff;
+  background: #338dd2;
   color: #fff;
   padding: 0.75rem 1rem;
   border-radius: 5px;
@@ -135,10 +138,14 @@ span {
 .header {
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  z-index: 9999;
   align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 60px;
+  top: 0;
+  background-color: #6fb2e6;
+  width: 100%;
 }
 
 .header ul {

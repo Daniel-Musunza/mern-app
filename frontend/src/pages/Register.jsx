@@ -8,13 +8,10 @@ import Spinner from '../components/Spinner'
 
 function Register() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password2: '',
+    identity: '',
   })
 
-  const { name, email, password, password2 } = formData
+  const { identity } = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -42,20 +39,21 @@ function Register() {
     }))
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
 
-    if (password !== password2) {
-      toast.error('Passwords do not match')
-    } else {
+   
       const userData = {
-        name,
-        email,
-        password,
+       identity
       }
+    //  const registeredIn = await IIConnection.register();
+    //  if(!registeredIn ){
 
+    //   toast.error("Didn't Register");
+
+    //   return;
+    //  }
       dispatch(register(userData))
-    }
   }
 
   if (isLoading) {
@@ -77,46 +75,14 @@ function Register() {
             <input
               type='text'
               className='form-control'
-              id='name'
-              name='name'
-              value={name}
-              placeholder='Enter your name'
+              id='identity'
+              name='identity'
+              value={identity}
+              placeholder='Enter your Internet Identity'
               onChange={onChange}
             />
           </div>
-          <div className='form-group'>
-            <input
-              type='email'
-              className='form-control'
-              id='email'
-              name='email'
-              value={email}
-              placeholder='Enter your email'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='password'
-              className='form-control'
-              id='password'
-              name='password'
-              value={password}
-              placeholder='Enter password'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='password'
-              className='form-control'
-              id='password2'
-              name='password2'
-              value={password2}
-              placeholder='Confirm password'
-              onChange={onChange}
-            />
-          </div>
+
           <div className='form-group'>
             <button type='submit' className='btn btn-block'>
               Submit

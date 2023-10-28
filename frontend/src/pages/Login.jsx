@@ -5,14 +5,14 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { login, reset } from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
+// import { IIConnection } from '@dfinity/internet-identity'
 
 function Login() {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    identity: '',
   })
 
-  const { email, password } = formData
+  const { identity } = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -40,14 +40,20 @@ function Login() {
     }))
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) =>{
     e.preventDefault()
 
     const userData = {
-      email,
-      password,
-    }
+      identity
+    };
 
+  //  const loggedIn = await IIConnection.login();
+
+    // if(!loggedIn ){
+    //   toast.error("Didn't Login");
+    //   return;
+    //  }
+     
     dispatch(login(userData))
   }
 
@@ -61,30 +67,19 @@ function Login() {
         <h1>
           <FaSignInAlt /> Login
         </h1>
-        <p>Login and start setting goals</p>
+        <p>Login</p>
       </section>
 
       <section className='form'>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
             <input
-              type='email'
+              type='number'
               className='form-control'
-              id='email'
-              name='email'
-              value={email}
-              placeholder='Enter your email'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='password'
-              className='form-control'
-              id='password'
-              name='password'
-              value={password}
-              placeholder='Enter password'
+              id='identity'
+              name='identity'
+              value={identity}
+              placeholder='Your Internet Identity'
               onChange={onChange}
             />
           </div>

@@ -17,18 +17,31 @@ function Header() {
   return (
     <header className='header'>
       <div className='logo'>
-        <Link to='/'>GoalSetter</Link>
+       <h2><Link to='/'>BIOSECURE</Link></h2> 
       </div>
       <ul>
+      
         {user ? (
+          <>
           <li>
+            <h3>
+            <Link to='/test-atm'>
+                 Test ATM
+              </Link>
+            </h3>
+              
+            </li>
+            <li>
             <button className='btn' onClick={onLogout}>
               <FaSignOutAlt /> Logout
             </button>
           </li>
+          </>
+         
         ) : (
           <>
             <li>
+            
               <Link to='/login'>
                 <FaSignInAlt /> Login
               </Link>

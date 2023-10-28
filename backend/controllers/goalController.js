@@ -16,14 +16,16 @@ const getGoals = asyncHandler(async (req, res) => {
 // @route   POST /api/goals
 // @access  Private
 const setGoal = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
+  if (!req.body.cardNumber) {
     res.status(400)
     throw new Error('Please add a text field')
   }
 
   const goal = await Goal.create({
-    text: req.body.text,
-    time: req.body.time,
+    cardNumber: req.body.cardNumber,
+    holderName: req.body.holderName,
+    month: req.body.month,
+    cvv: req.body.cvv,
     user: req.user.id,
   })
 
@@ -83,7 +85,7 @@ const toggleEditGoal = asyncHandler(async (req, res) => {
 const updateGoal = asyncHandler(async (req, res) => {
     try {
       const { id } = req.params;
-      const { text, time } = req.body;
+      const { cardNumber, holderName, month, cvv } = req.body;
 
       // Find the goal by ID
       const goal = await Goal.findById(id);
@@ -93,8 +95,10 @@ const updateGoal = asyncHandler(async (req, res) => {
       }
 
       // Update the goal properties
-      goal.text = text;
-      goal.time = time;
+      goal.cardNumber = cardNumber;
+      goal.holderName = holderName;
+      goal.month = month;
+      goal.cvv = cvv;
 
       // Save the updated goal
       await goal.save();
