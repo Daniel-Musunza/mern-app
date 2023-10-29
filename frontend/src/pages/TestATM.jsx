@@ -22,18 +22,9 @@ function TestATM() {
 
 
   return (
-    <>
-      <section className='heading'>
-        <h1>
-          <FaSignInAlt /> Test ATM
-        </h1>
-        <p>Test</p>
+      <section className='atm-container'>
+        <img src="ATm.png" alt="" />
       </section>
-
-      <section className='form'>
-      
-      </section>
-    </>
   )
 }
 
