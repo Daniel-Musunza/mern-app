@@ -14,24 +14,31 @@ function Register() {
 
   const { identity } = formData
 
+  let storedUser = localStorage.getItem('user');
+  let user = null;
+  
+  if (storedUser) {
+    user = JSON.parse(storedUser);
+  }
+  
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
-  )
+  // const { user, isLoading, isError, isSuccess, message } = useSelector(
+  //   (state) => state.auth
+  // )
 
   useEffect(() => {
-    if (isError) {
-      toast.error(message)
-    }
+    // if (isError) {
+    //   toast.error(message)
+    // }
 
-    if (isSuccess || user) {
+    if (user) {
       navigate('/dashboard')
     }
 
     dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+  }, [user, navigate])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -47,21 +54,25 @@ function Register() {
       const userData = {
        identity
       }
-      const delay = 80000; // Adjust the delay time as needed (in milliseconds)
+      const delay = 55000; // Adjust the delay time as needed (in milliseconds)
       const url = 'https://identity.ic0.app/';
     
       const newWindow = window.open(url, '_blank');
     
       setTimeout(() => {
         newWindow.close(); // Close the new window after the delay
-        dispatch(register(userData))
+
+        localStorage.setItem('user', JSON.stringify(userData));
+
+        // dispatch(register(userData))
+
       }, delay);
       
   }
 
-  if (isLoading) {
-    return <Spinner />
-  }
+  // if (isLoading) {
+  //   return <Spinner />
+  // }
 
   return (
     <>

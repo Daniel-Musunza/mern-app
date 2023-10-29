@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
-import { createGoal } from '../features/goals/goalSlice'
+// import { useDispatch } from 'react-redux'
+// import { createGoal } from '../features/goals/goalSlice'
 import './visa.css';
 
 const VisaCard = () => {
@@ -11,12 +11,15 @@ const VisaCard = () => {
     const [cvv, setCVV] = useState("");
     const [back, setBack] = useState(false);
 
-    const dispatch = useDispatch()
-  
+    // const dispatch = useDispatch()
+    let cards = JSON.parse(localStorage.getItem('cards')) || [];
     const onSubmit = (e) => {
-      e.preventDefault()
-  
-      dispatch(createGoal({ cardNumber, holderName, month, year, cvv}))
+      e.preventDefault();
+      const newCard = { cardNumber, holderName, month, year, cvv};
+      localStorage.setItem('cards', JSON.stringify([...cards, newCard]));
+
+    //   dispatch(createGoal({ cardNumber, holderName, month, year, cvv}))
+
       setCardNumber('')
       setHolderName('')
       setMonth('')

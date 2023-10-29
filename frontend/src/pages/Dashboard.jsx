@@ -10,7 +10,14 @@ function Dashboard() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.auth);
+  // const { user } = useSelector((state) => state.auth);
+  let storedUser = localStorage.getItem('user');
+  let user = null;
+  
+  if (storedUser) {
+    user = JSON.parse(storedUser);
+  }
+  
 
   useEffect(() => {
 

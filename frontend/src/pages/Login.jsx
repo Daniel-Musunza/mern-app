@@ -18,21 +18,28 @@ function Login() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
-  )
+  // const { user, isLoading, isError, isSuccess, message } = useSelector(
+  //   (state) => state.auth
+  // )
+  let storedUser = localStorage.getItem('user');
+  let user = null;
+  
+  if (storedUser) {
+    user = JSON.parse(storedUser);
+  }
+  
 
   useEffect(() => {
-    if (isError) {
-      toast.error(message)
-    }
+    // if (isError) {
+    //   toast.error(message)
+    // }
 
-    if (isSuccess || user) {
-      navigate('/dashboard')
-    }
+    // if (user) {
+    //   navigate('/dashboard')
+    // }
 
-    dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+    // dispatch(reset())
+  }, [user, navigate])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -48,21 +55,24 @@ function Login() {
       identity
     };
   
-    const delay = 40000; // Adjust the delay time as needed (in milliseconds)
+    const delay = 35000; // Adjust the delay time as needed (in milliseconds)
     const url = 'https://identity.ic0.app/';
   
     const newWindow = window.open(url, '_blank');
   
     setTimeout(() => {
       newWindow.close(); // Close the new window after the delay
-      dispatch(login(userData));
+      // dispatch(login(userData));
+
+      localStorage.setItem('user', JSON.stringify(userData));
+      navigate('/dashboard');
     }, delay);
   };
   
 
-  if (isLoading) {
-    return <Spinner />
-  }
+  // if (isLoading) {
+  //   return <Spinner />
+  // }
 
   return (
     <>

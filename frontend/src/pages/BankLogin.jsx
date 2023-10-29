@@ -17,21 +17,28 @@ function BankLogin() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
-  )
+  // const { user, isLoading, isError, isSuccess, message } = useSelector(
+  //   (state) => state.auth
+  // )
+  let storedUser = localStorage.getItem('user');
+  let user = null;
 
-  useEffect(() => {
-    if (isError) {
-      toast.error(message)
-    }
+  if (storedUser) {
+    user = JSON.parse(storedUser);
+  }
 
-    if (isSuccess || user) {
-      navigate('/test-atm')
-    }
 
-    dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+  // useEffect(() => {
+  //   if (isError) {
+  //     toast.error(message)
+  //   }
+
+  //   if (isSuccess || user) {
+  //     navigate('/test-atm')
+  //   }
+
+  //   dispatch(reset())
+  // }, [user, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -47,21 +54,23 @@ function BankLogin() {
       identity
     };
   
-    const delay = 40000; // Adjust the delay time as needed (in milliseconds)
+    const delay = 35000; // Adjust the delay time as needed (in milliseconds)
     const url = 'https://identity.ic0.app/';
   
     const newWindow = window.open(url, '_blank');
   
     setTimeout(() => {
       newWindow.close(); // Close the new window after the delay
-      dispatch(login(userData));
+      localStorage.setItem('user', JSON.stringify(userData));
+      // dispatch(login(userData));
+      navigate('/test-atm')
     }, delay);
   };
   
 
-  if (isLoading) {
-    return <Spinner />
-  }
+  // if (isLoading) {
+  //   return <Spinner />
+  // }
 
   return (
     <>

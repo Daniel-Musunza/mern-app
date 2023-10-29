@@ -10,14 +10,21 @@ function TestATM() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth
-  )
+  // const { user, isLoading, isError, isSuccess, message } = useSelector(
+  //   (state) => state.auth
+  // )
+  let storedUser = localStorage.getItem('user');
+  let user = null;
+  
+  if (storedUser) {
+    user = JSON.parse(storedUser);
+  }
+  
+  let cards = JSON.parse(localStorage.getItem('cards')) || [];
+  // useEffect(() => {
 
-  useEffect(() => {
 
-
-  }, [user, isSuccess, navigate, dispatch])
+  // }, [user, isSuccess, navigate, dispatch])
 
   const onLogout = () => {
     dispatch(logout())
