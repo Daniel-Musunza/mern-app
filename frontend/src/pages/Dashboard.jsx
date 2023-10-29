@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Spinner from '../components/Spinner';
 import { reset} from '../features/goals/goalSlice';
 import VisaCard from '../components/VisaCard';
+import Header from '../components/Header';
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -25,7 +26,9 @@ function Dashboard() {
 
 
   return (
-    <div className="TodoWrapper">
+    <>
+     <Header />
+     <div className="TodoWrapper">
       <section className='heading'>
         <h1>Welcome {user && user.identity}</h1>
         <h2>BIOSECURE</h2>
@@ -33,6 +36,8 @@ function Dashboard() {
       <VisaCard />
     
     </div>
+    </>
+ 
   );
 }
 

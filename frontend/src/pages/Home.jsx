@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'
+import Header from '../components/Header';
 
 function Home() {
 
   return (
     <>
+    <Header />
       <section className='container1'>
         <div className='main-content1'>
           <h1>Welcome to the Future of Banking</h1>

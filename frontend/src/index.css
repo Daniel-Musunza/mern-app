@@ -332,6 +332,10 @@ span {
 .atm-container img {
   cursor: pointer;
 }
+.atm-container h1 {
+  color: #1A1A40;
+}
+
 .container1 {
   background-color: #1A1A40;
 

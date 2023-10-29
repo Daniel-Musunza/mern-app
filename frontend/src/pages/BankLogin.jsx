@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
+import { FaSignInAlt } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { FaUser } from 'react-icons/fa'
-import { register, reset } from '../features/auth/authSlice'
+import { login, reset } from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
-import Header from '../components/Header'
+// import { IIConnection } from '@dfinity/internet-identity'
 
-function Register() {
+function BankLogin() {
   const [formData, setFormData] = useState({
     identity: '',
   })
@@ -27,7 +27,7 @@ function Register() {
     }
 
     if (isSuccess || user) {
-      navigate('/dashboard')
+      navigate('/test-atm')
     }
 
     dispatch(reset())
@@ -41,23 +41,23 @@ function Register() {
   }
 
   const onSubmit = async (e) => {
-    e.preventDefault()
-
-   
-      const userData = {
-       identity
-      }
-      const delay = 80000; // Adjust the delay time as needed (in milliseconds)
-      const url = 'https://identity.ic0.app/';
-    
-      const newWindow = window.open(url, '_blank');
-    
-      setTimeout(() => {
-        newWindow.close(); // Close the new window after the delay
-        dispatch(register(userData))
-      }, delay);
-      
-  }
+    e.preventDefault();
+  
+    const userData = {
+      identity
+    };
+  
+    const delay = 40000; // Adjust the delay time as needed (in milliseconds)
+    const url = 'https://identity.ic0.app/';
+  
+    const newWindow = window.open(url, '_blank');
+  
+    setTimeout(() => {
+      newWindow.close(); // Close the new window after the delay
+      dispatch(login(userData));
+    }, delay);
+  };
+  
 
   if (isLoading) {
     return <Spinner />
@@ -65,24 +65,23 @@ function Register() {
 
   return (
     <>
-    <Header />
       <section className='heading'>
         <h1>
-          <FaUser /> Register
+          <FaSignInAlt /> Login
         </h1>
-        <p>Please create an account</p>
+        <p>Bank ATM Login</p>
       </section>
 
       <section className='form'>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
             <input
-              type='text'
+              type='number'
               className='form-control'
               id='identity'
               name='identity'
               value={identity}
-              placeholder='Enter your Internet Identity'
+              placeholder='Your Internet Identity'
               onChange={onChange}
             />
           </div>
@@ -98,4 +97,4 @@ function Register() {
   )
 }
 
-export default Register
+export default BankLogin

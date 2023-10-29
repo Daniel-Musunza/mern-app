@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { login, reset } from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
+import Header from '../components/Header'
 // import { IIConnection } from '@dfinity/internet-identity'
 
 function Login() {
@@ -47,7 +48,7 @@ function Login() {
       identity
     };
   
-    const delay = 50000; // Adjust the delay time as needed (in milliseconds)
+    const delay = 40000; // Adjust the delay time as needed (in milliseconds)
     const url = 'https://identity.ic0.app/';
   
     const newWindow = window.open(url, '_blank');
@@ -65,6 +66,7 @@ function Login() {
 
   return (
     <>
+    <Header />
       <section className='heading'>
         <h1>
           <FaSignInAlt /> Login

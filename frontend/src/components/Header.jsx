@@ -38,14 +38,6 @@ function Header() {
             </h3>
               
             </li>
-          <li>
-            <h3>
-            <Link to='/test-atm'>
-                 Test ATM
-              </Link>
-            </h3>
-              
-            </li>
             <li>
             <button className='btn' onClick={onLogout}>
               <FaSignOutAlt /> Logout
