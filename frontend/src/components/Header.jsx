@@ -17,7 +17,7 @@ function Header() {
   return (
     <header className='header'>
       <div className='logo'>
-       <h2><Link to='/'>BIOSECURE</Link></h2> 
+       <h2><Link to='/'><img src="logo192.png" alt="" width='100px' /></Link></h2> 
       </div>
       <ul>
       
