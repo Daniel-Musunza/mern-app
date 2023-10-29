@@ -20,25 +20,26 @@ function BankLogin() {
   // const { user, isLoading, isError, isSuccess, message } = useSelector(
   //   (state) => state.auth
   // )
-  let storedUser = localStorage.getItem('user');
-  let user = null;
-
-  if (storedUser) {
-    user = JSON.parse(storedUser);
-  }
 
 
-  // useEffect(() => {
-  //   if (isError) {
-  //     toast.error(message)
-  //   }
 
-  //   if (isSuccess || user) {
-  //     navigate('/test-atm')
-  //   }
+  useEffect(() => {
+    // if (isError) {
+    //   toast.error(message)
+    // }
 
-  //   dispatch(reset())
-  // }, [user, isError, isSuccess, message, navigate, dispatch])
+    let storedUser = localStorage.getItem('user');
+    let user = null;
+  
+    if (storedUser) {
+      user = JSON.parse(storedUser);
+    }
+    if (user) {
+      navigate('/test-atm')
+    }
+
+    // dispatch(reset())
+  }, [ navigate])
 
   const onChange = (e) => {
     setFormData((prevState) => ({

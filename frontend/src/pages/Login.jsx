@@ -21,25 +21,26 @@ function Login() {
   // const { user, isLoading, isError, isSuccess, message } = useSelector(
   //   (state) => state.auth
   // )
-  let storedUser = localStorage.getItem('user');
-  let user = null;
-  
-  if (storedUser) {
-    user = JSON.parse(storedUser);
-  }
+ 
   
 
   useEffect(() => {
     // if (isError) {
     //   toast.error(message)
     // }
+    let storedUser = localStorage.getItem('user');
+    let user = null;
+    
+    if (storedUser) {
+      user = JSON.parse(storedUser);
+    }
 
-    // if (user) {
-    //   navigate('/dashboard')
-    // }
+    if (user) {
+      navigate('/dashboard')
+    }
 
     // dispatch(reset())
-  }, [user, navigate])
+  }, [navigate])
 
   const onChange = (e) => {
     setFormData((prevState) => ({

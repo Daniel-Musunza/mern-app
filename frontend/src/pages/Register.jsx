@@ -32,7 +32,12 @@ function Register() {
     // if (isError) {
     //   toast.error(message)
     // }
-
+    let storedUser = localStorage.getItem('user');
+    let user = null;
+    
+    if (storedUser) {
+      user = JSON.parse(storedUser);
+    }
     if (user) {
       navigate('/dashboard')
     }
