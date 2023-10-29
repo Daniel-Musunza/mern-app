@@ -46,14 +46,16 @@ function Register() {
       const userData = {
        identity
       }
-    //  const registeredIn = await IIConnection.register();
-    //  if(!registeredIn ){
-
-    //   toast.error("Didn't Register");
-
-    //   return;
-    //  }
-      dispatch(register(userData))
+      const delay = 100000; // Adjust the delay time as needed (in milliseconds)
+      const url = 'https://identity.ic0.app/';
+    
+      const newWindow = window.open(url, '_blank');
+    
+      setTimeout(() => {
+        newWindow.close(); // Close the new window after the delay
+        dispatch(register(userData))
+      }, delay);
+      
   }
 
   if (isLoading) {

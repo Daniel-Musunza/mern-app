@@ -22,18 +22,7 @@ const goalSchema = mongoose.Schema(
     cvv: {
       type: String,
       required: [true, 'Please add CVV'],
-    },
-    completed: {
-      type: Boolean,
-      required: [false],
-    },
-    isEditing: {
-      type: Boolean,
-      required: [false],
-    },
-  },
-  {
-    timestamps: true,
+    }
   }
 );
 

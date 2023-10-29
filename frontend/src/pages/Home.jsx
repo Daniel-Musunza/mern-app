@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom'
 
 function Home() {
 
@@ -8,7 +9,7 @@ function Home() {
         <div className='main-content1'>
           <h1>Welcome to the Future of Banking</h1>
           <p>Experience the next level of secure and convenient banking with our cutting-edge biometric authentication technology.</p>
-          <button className='get-started-button'>Get Started</button>
+         <Link to="/register"><button className='get-started-button'>Get Started</button></Link> 
         </div>
       </section>
     </>

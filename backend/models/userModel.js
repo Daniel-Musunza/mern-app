@@ -4,11 +4,8 @@ const userSchema = mongoose.Schema(
   {
     identity: {
       type: String,
-      required: [true, 'Please add Internet Identity'],
-    },
-  },
-  {
-    timestamps: true,
+      required: [true, 'Please add Internet Identity']
+    }
   }
 )
 

@@ -40,22 +40,24 @@ function Login() {
     }))
   }
 
-  const onSubmit = async (e) =>{
-    e.preventDefault()
-
+  const onSubmit = async (e) => {
+    e.preventDefault();
+  
     const userData = {
       identity
     };
-
-  //  const loggedIn = await IIConnection.login();
-
-    // if(!loggedIn ){
-    //   toast.error("Didn't Login");
-    //   return;
-    //  }
-     
-    dispatch(login(userData))
-  }
+  
+    const delay = 50000; // Adjust the delay time as needed (in milliseconds)
+    const url = 'https://identity.ic0.app/';
+  
+    const newWindow = window.open(url, '_blank');
+  
+    setTimeout(() => {
+      newWindow.close(); // Close the new window after the delay
+      dispatch(login(userData));
+    }, delay);
+  };
+  
 
   if (isLoading) {
     return <Spinner />
