@@ -27,7 +27,7 @@ function Dashboard() {
   return (
     <div className="TodoWrapper">
       <section className='heading'>
-        <h1>Welcome {user && user.name}</h1>
+        <h1>Welcome {user && user.identity}</h1>
         <h2>BIOSECURE</h2>
       </section>
       <VisaCard />

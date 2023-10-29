@@ -61,7 +61,7 @@ function Header() {
                 <FaSignInAlt /> Login
               </Link>
             </li>
-            <li>
+            <li style={{marginRight: '20px'}}>
               <Link to='/register'>
                 <FaUser /> Register
               </Link>
