@@ -221,7 +221,7 @@ span {
 
 .form,
 .content {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -331,4 +331,51 @@ span {
 
 .atm-container img {
   cursor: pointer;
+}
+.container1 {
+  background-color: #1A1A40;
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content1 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #2ea0eb;
+  margin: 40px;
+}
+
+.get-started-button {
+  background-color: #2ea0eb;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.get-started-button:hover {
+  background-color: #2ea0eb;
 }

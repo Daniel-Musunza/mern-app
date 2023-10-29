@@ -17,12 +17,27 @@ function Header() {
   return (
     <header className='header'>
       <div className='logo'>
-       <h2><Link to='/'><img src="logo192.png" alt="" width='100px' /></Link></h2> 
+       <h2><Link to='/dashboard'><img src="logo192.png" alt="" width='100px' /></Link></h2> 
       </div>
       <ul>
-      
+      <li>
+            <h3>
+            <Link to='/'>
+                 Home
+              </Link>
+            </h3>
+              
+            </li>
         {user ? (
           <>
+          <li>
+            <h3>
+            <Link to='/dashboard'>
+                 Dashboard
+              </Link>
+            </h3>
+              
+            </li>
           <li>
             <h3>
             <Link to='/test-atm'>
