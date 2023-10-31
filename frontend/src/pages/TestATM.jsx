@@ -36,6 +36,19 @@ function TestATM() {
   return (
       <section className='atm-container'>
         <h1 >Welcome User {user && user.identity}</h1>
+        
+          <form action="">
+            <div className='form-group'>
+              <select name="" id="" className="form-control">
+              <option value="">Select Card To do Transaction</option>
+              {cards.map((card, index) => (
+                    <option key={index}  value={card.cardNumber}>{card.cardNumber}</option>
+                ))}
+                
+              </select>
+            </div>
+          </form>
+        
         <img src="ATm.png" alt="" />
         <button className='btn' onClick={onLogout} style={{background: '#2ea0eb'}}>
               <FaSignOutAlt /> Quit

@@ -69,7 +69,8 @@ function Register() {
         newWindow.close(); // Close the new window after the delay
 
         // localStorage.setItem('user', JSON.stringify(userData));
-
+        alert("registered Successfully, proceed to login");
+        navigate('/login');
         // dispatch(register(userData))
         setLoading(false);
       }, delay);

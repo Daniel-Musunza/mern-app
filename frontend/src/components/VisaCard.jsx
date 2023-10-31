@@ -25,7 +25,8 @@ const VisaCard = () => {
       setMonth('')
       setYear('')
       setCVV('')
-      alert("Card Added Successfully")
+      alert("Card Added Successfully");
+      window.location.reload();
     }
 
     const cardBack = () => {
@@ -152,7 +153,7 @@ const VisaCard = () => {
                     </div>
                 </div>
                 <button onClick={onSubmit} disabled={!complete} className="submit-btn">
-                    Pay
+                    ADD
                 </button>
             </form>
         </div>

@@ -9,7 +9,7 @@ import Header from '../components/Header';
 function Dashboard() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  let cards = JSON.parse(localStorage.getItem('cards')) || [];
   // const { user } = useSelector((state) => state.auth);
   let storedUser = localStorage.getItem('user');
   let user = null;
@@ -45,7 +45,12 @@ function Dashboard() {
       
      </div>
      <div className="cards">
-        <h3>All Your Cards</h3>
+        <h2>All Your Cards</h2>
+        {cards.map((card, index) => (
+            <div className="card form-control" key={index}>
+              <h4>{card.cardNumber}</h4>
+            </div>
+        ))}
      </div>
      </div>
      
