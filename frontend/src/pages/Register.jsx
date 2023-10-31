@@ -11,6 +11,7 @@ function Register() {
   const [formData, setFormData] = useState({
     identity: '',
   })
+  const [isLoading, setLoading] = useState(false);
 
   const { identity } = formData
 
@@ -45,20 +46,20 @@ function Register() {
     dispatch(reset())
   }, [user, navigate])
 
-  const onChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }))
-  }
+  // const onChange = (e) => {
+  //   setFormData((prevState) => ({
+  //     ...prevState,
+  //     [e.target.name]: e.target.value,
+  //   }))
+  // }
 
   const onSubmit = async (e) => {
     e.preventDefault()
 
-   
-      const userData = {
-       identity
-      }
+    setLoading(true);
+      // const userData = {
+      //  identity
+      // }
       const delay = 65000; // Adjust the delay time as needed (in milliseconds)
       const url = 'https://identity.ic0.app/';
     
@@ -67,17 +68,17 @@ function Register() {
       setTimeout(() => {
         newWindow.close(); // Close the new window after the delay
 
-        localStorage.setItem('user', JSON.stringify(userData));
+        // localStorage.setItem('user', JSON.stringify(userData));
 
         // dispatch(register(userData))
-
+        setLoading(false);
       }, delay);
       
   }
 
-  // if (isLoading) {
-  //   return <Spinner />
-  // }
+  if (isLoading) {
+    return <Spinner />
+  }
 
   return (
     <>
@@ -86,12 +87,11 @@ function Register() {
         <h1>
           <FaUser /> Register
         </h1>
-        <p>Please create an account</p>
       </section>
 
       <section className='form'>
         <form onSubmit={onSubmit}>
-          <div className='form-group'>
+          {/* <div className='form-group'>
             <input
               type='text'
               className='form-control'
@@ -101,11 +101,11 @@ function Register() {
               placeholder='Enter your Internet Identity'
               onChange={onChange}
             />
-          </div>
+          </div> */}
 
           <div className='form-group'>
             <button type='submit' className='btn btn-block'>
-              Submit
+              Register
             </button>
           </div>
         </form>

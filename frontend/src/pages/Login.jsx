@@ -13,6 +13,8 @@ function Login() {
     identity: '',
   })
 
+  const [isLoading, setLoading] = useState(false);
+
   const { identity } = formData
 
   const navigate = useNavigate()
@@ -50,30 +52,32 @@ function Login() {
   }
 
   const onSubmit = async (e) => {
-    e.preventDefault();
-  
-    const userData = {
-      identity
-    };
-  
-    const delay = 45000; // Adjust the delay time as needed (in milliseconds)
-    const url = 'https://identity.ic0.app/';
-  
-    const newWindow = window.open(url, '_blank');
-  
-    setTimeout(() => {
-      newWindow.close(); // Close the new window after the delay
-      // dispatch(login(userData));
+      e.preventDefault();
+      setLoading(true);
+      const userData = {
+        identity
+      };
+    
+      const delay = 45000; // Adjust the delay time as needed (in milliseconds)
+      const url = 'https://identity.ic0.app/';
+    
+      const newWindow = window.open(url, '_blank');
+    
+      setTimeout(() => {
+        newWindow.close(); // Close the new window after the delay
+        // dispatch(login(userData));
 
-      localStorage.setItem('user', JSON.stringify(userData));
-      navigate('/dashboard');
-    }, delay);
+        localStorage.setItem('user', JSON.stringify(userData));
+        navigate('/dashboard');
+        setLoading(false);
+      }, delay);
+      
   };
   
 
-  // if (isLoading) {
-  //   return <Spinner />
-  // }
+  if (isLoading) {
+    return <Spinner />
+  }
 
   return (
     <>
@@ -82,7 +86,6 @@ function Login() {
         <h1>
           <FaSignInAlt /> Login
         </h1>
-        <p>Login</p>
       </section>
 
       <section className='form'>

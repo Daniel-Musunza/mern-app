@@ -11,6 +11,7 @@ function BankLogin() {
   const [formData, setFormData] = useState({
     identity: '',
   })
+  const [isLoading, setLoading] = useState(false);
 
   const { identity } = formData
 
@@ -50,7 +51,7 @@ function BankLogin() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-  
+    setLoading(true);
     const userData = {
       identity
     };
@@ -65,21 +66,22 @@ function BankLogin() {
       localStorage.setItem('user', JSON.stringify(userData));
       // dispatch(login(userData));
       navigate('/test-atm')
+
+      setLoading(false);
     }, delay);
   };
   
 
-  // if (isLoading) {
-  //   return <Spinner />
-  // }
+  if (isLoading) {
+    return <Spinner />
+  }
 
   return (
     <>
       <section className='heading'>
         <h1>
-          <FaSignInAlt /> Login
+          <FaSignInAlt /> Bank ATM Login
         </h1>
-        <p>Bank ATM Login</p>
       </section>
 
       <section className='form'>

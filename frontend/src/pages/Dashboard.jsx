@@ -35,14 +35,20 @@ function Dashboard() {
   return (
     <>
      <Header />
+     <div className="main">
      <div className="TodoWrapper">
       <section className='heading'>
         <h1>Welcome {user && user.identity}</h1>
         <h2>BIOSECURE</h2>
       </section>
       <VisaCard />
-    
-    </div>
+      
+     </div>
+     <div className="cards">
+        <h3>All Your Cards</h3>
+     </div>
+     </div>
+     
     </>
  
   );
