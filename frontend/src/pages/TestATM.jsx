@@ -40,7 +40,7 @@ function TestATM() {
           <form action="">
             <div className='form-group'>
               <select name="" id="" className="form-control">
-              <option value="">Select Card To do Transaction</option>
+              <option value="">Select Card to use</option>
               {cards.map((card, index) => (
                     <option key={index}  value={card.cardNumber}>{card.cardNumber}</option>
                 ))}

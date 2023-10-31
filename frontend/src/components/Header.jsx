@@ -45,6 +45,11 @@ function Header() {
               
             </li>
             <li>
+            <h3>
+              User {user && user.identity}
+            </h3> 
+            </li>
+            <li>
             <button className='btn' onClick={onLogout}>
               <FaSignOutAlt /> Logout
             </button>
