@@ -60,7 +60,7 @@ function Register() {
       // const userData = {
       //  identity
       // }
-      const delay = 65000; // Adjust the delay time as needed (in milliseconds)
+      const delay = 55000; // Adjust the delay time as needed (in milliseconds)
       const url = 'https://identity.ic0.app/';
     
       const newWindow = window.open(url, '_blank');
@@ -106,7 +106,7 @@ function Register() {
 
           <div className='form-group'>
             <button type='submit' className='btn btn-block'>
-              Register
+              Get started
             </button>
           </div>
         </form>

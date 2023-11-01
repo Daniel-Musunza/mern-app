@@ -327,6 +327,10 @@ span {
   display: flex;
   flex-direction: column;
 }
+.heading{
+  margin-top: 100px;
+  margin-bottom: 0;
+}
 
   .heading h1 {
     font-size: 2rem;

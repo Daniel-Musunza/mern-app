@@ -9,10 +9,11 @@
     /* padding-bottom: 60px; */
     min-width: 300px;
 }
-@media (max-width:477px){
+@media (max-width:800px){
     .container{
     min-height: 40vh;
     width: 300px;
+    margin-left: 15px;
     }
     .container form{
     width: 350px;

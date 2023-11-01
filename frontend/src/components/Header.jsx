@@ -44,8 +44,8 @@ function Header() {
             </h3>
               
             </li>
-            <li>
-            <h3>
+            <li style={{position: 'fixed', zIndex: '9999', right: '10px', top: '0'}}>
+            <h3 style={{color: '#1A1A40'}}>
               User {user && user.identity}
             </h3> 
             </li>
