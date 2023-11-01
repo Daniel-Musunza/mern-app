@@ -52,7 +52,7 @@ function TestATM() {
         <img src="ATm.png" alt="" />
         <button className='btn' onClick={onLogout} style={{background: '#2ea0eb'}}>
               <FaSignOutAlt /> Quit
-            </button>
+        </button>
       </section>
   )
 }

@@ -320,7 +320,17 @@ span {
     margin: 0;
   }
   form{
-    margin-left: -20px;
+    width: 100%;
+    margin-left: -35px;
+    margin-right: auto;
+  }
+  .container1{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .main-container1{
+    width: 100%;
   }
 .main{
   margin: 0;
@@ -334,6 +344,7 @@ span {
 
   .heading h1 {
     font-size: 2rem;
+
   }
 li h3,
 .btn {
@@ -349,9 +360,13 @@ li h3,
 
 .atm-container {
   width: 100%;
+  margin: 0;
+  position: relative;
 }
 
 .atm-container img {
+  width: 100%;
+  margin-left: 0;
   cursor: pointer;
 }
 .atm-container h1 {

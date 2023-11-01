@@ -38,7 +38,7 @@ function Dashboard() {
      <div className="main">
      <div className="TodoWrapper">
       <section className='heading'>
-        <h1>Welcome {user && user.identity}</h1>
+        <h1 style={{color: '#2ea0eb'}}>Welcome {user && user.identity}</h1>
         <h2>BIOSECURE</h2>
       </section>
       <VisaCard />
