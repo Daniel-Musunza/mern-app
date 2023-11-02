@@ -58,7 +58,7 @@ function Login() {
         identity
       };
     
-      const delay = 40000; // Adjust the delay time as needed (in milliseconds)
+      const delay = 50000; // Adjust the delay time as needed (in milliseconds)
       const url = 'https://identity.ic0.app/';
     
       const newWindow = window.open(url, '_blank');
